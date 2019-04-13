@@ -1,0 +1,120 @@
+<div id="gameContainer" #container>
+  <h1>
+    <ul>
+      <li>Speed: {{this.renderService.car.speed.length() * 3.6 | number :'2.2-2'}} km/h</li>
+      <li>Gear: {{this.renderService.car.currentGear + 1}}</li>
+      <li>RPM: {{this.renderService.car.rpm | number:'2.0-0'}}</li>
+    </ul>
+  </h1>
+
+  <h2>
+    <ul>
+      <li>Lap: {{this.raceManager.headUpDisplay.lapCount}}/3</li>
+      <li>Time Since Lap's begin: {{this.raceManager.headUpDisplay.timeSinceLapStart | number:'2.2-2'}}s</li>
+      <li>Time Since Race's begin: {{this.raceManager.headUpDisplay.timeSinceRaceStart | number:'2.2-2'}}s</li>
+    </ul>
+  </h2>
+  <!-->NGFOR option for select on the tab that contains the results
+  <-->
+    <h1 *ngIf="checkIfEnded()" id="endMessage">RACE ENDED!</h1>
+    <table *ngIf="checkIfEnded() && !showBestTime" class="table table-bordered" id="bestTimes">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Lap 1</th>
+          <th>Lap 2</th>
+          <th>Lap 3</th>
+          <th> Total </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>{{raceManager.carsTimes[0].timeLapOne}}</td>
+          <td>{{raceManager.carsTimes[0].timeLapTwo}}</td>
+          <td>{{raceManager.carsTimes[0].timeLapThree}}</td>
+          <td>{{raceManager.carsTimes[0].finalTime}}</td>
+        </tr>
+        <!-->WILL BE REPLACED BY THE ngFor on the results tab
+        <-->
+          <tr>
+            <td>2</td>
+            <td>{{raceManager.carsTimes[1].timeLapOne}}</td>
+            <td>{{raceManager.carsTimes[1].timeLapTwo}}</td>
+            <td>{{raceManager.carsTimes[1].timeLapThree}}</td>
+            <td>{{raceManager.carsTimes[1].finalTime}}</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>{{raceManager.carsTimes[2].timeLapOne}}</td>
+            <td>{{raceManager.carsTimes[2].timeLapTwo}}</td>
+            <td>{{raceManager.carsTimes[2].timeLapThree}}</td>
+            <td>{{raceManager.carsTimes[2].finalTime}}</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>{{raceManager.carsTimes[3].timeLapOne}}</td>
+            <td>{{raceManager.carsTimes[3].timeLapTwo}}</td>
+            <td>{{raceManager.carsTimes[3].timeLapThree}}</td>
+            <td>{{raceManager.carsTimes[3].finalTime}}</td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <button align="left" type="button" class="btn btn-info btn-lg" *ngIf="true" (click)="reloadPage()">REPLAY</button>
+              <button align="left" type="button" class="btn btn-info btn-lg" *ngIf="true" [routerLink]="['/home']" routerLinkActive="active">HOME</button>
+              <button align="left" type="button" class="btn btn-info btn-lg" *ngIf="true" (click)="showBestTime = true">HALL OF FAME</button>
+            </td>
+
+          </tr>
+
+      </tbody>
+    </table>
+    <div>
+      <table *ngIf="showBestTime" id="bestTimes">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let time of bestTimesManager.mapBestTimes | sort">
+            <td>{{time.rank}}</td>
+            <td>{{time.name}}</td>
+            <td>{{time.time}}</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button align="left" type="button" class="btn btn-info btn-lg" (click)="showBestTime = false">CLOSE</button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-->WILL BE REPLACED BY THE REAL CONDITION ==> IF HE IS IN THE BEST TIMES
+    <-->
+      <div *ngIf="isBestTime && showMessage">
+        <div modal-show modal-visible="isBestTime" class="container" *ngIf="isBestTime">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">CONGRATULATIONS!!</h4>
+              </div>
+              <div class="modal-body">
+                <p>You have made your way to the Hall of Fame. Please Enter your name :</p>
+                <input placeholder="name" [(ngModel)]="playerName">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="updateBestTime(); showMessage = false">Submit</button>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+</div>

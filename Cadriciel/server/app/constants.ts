@@ -1,0 +1,11 @@
+export const PATH_TO_LEXIC: string = "../server/lexic/englishWords.txt";
+export const PATH_TO_HARD_WORDS: string = "../server/lexic/englishHardWords.txt";
+export const PATH_TO_COMMON_WORDS: string = "../server/lexic/englishEasyWords.txt";
+export const PATH_TO_SERVER: string = "http://localhost:3000";
+export const MAX_SIZE: number = 10;
+export const POURCENT_BLACK_CELLS: number = 0.4;
+export const OFFSET_GRID: number = 2;
+export const MIN_WORD_LENGTH: number = 2 ;
+export const EASY_LEVEL: number = 1 ;
+export const MEDIUM_LEVEL: number = 2 ;
+export const HARD_LEVEL: number = 3 ;

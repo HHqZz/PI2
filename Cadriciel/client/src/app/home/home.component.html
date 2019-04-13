@@ -1,0 +1,29 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<h2>WELCOME TO OUR PROJECT ! </h2>
+<h4> Choose your favorite GAME </h4>
+<nav>
+    
+  
+  <div class="row">
+    <div class="col-sm-6" id = "sectionCrossWord"> 
+        <div>
+           <button id = "crossWordButton" class="btn btn-primary" [routerLink]="['/crossword/menu']" routerLinkActive="active">CrossWord</button>
+        </div>
+    </div>
+        
+   <div class="col-sm-6 text-center" id = "sectionCarRace">
+      <div>
+         <button id = "carRaceButton" class="btn btn-primary" [routerLink]="['/car_race/user']"routerLinkActive="active">Car race</button>
+       </div>
+      </div>
+  </div>
+
+</nav>

@@ -1,0 +1,97 @@
+#headerText{
+	text-align: center;
+	font-size: 40px;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 25px;
+  width: 27%;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2 
+}
+
+tr:hover {
+	background-color: #d8dae9;
+}
+
+th {
+	background-color: rgb(24, 55, 192);
+	color: white;
+}
+
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+.maps {
+	float: center;
+}
+
+label{
+  display: inline-block;
+  clear: left;
+  width: 250px;
+  text-align: right;
+}
+
+li{
+  list-style: none;
+  margin-bottom: 15px;
+  margin-left: -170px;
+}
+
+input {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 10px;
+  width: 130px;
+  box-sizing: 20px 30px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input:focus {
+	width: 50%;
+}
+
+select[type="string"] {
+  margin-left: 8px;
+  width: 190px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-color: rgb(204,204,204) rgb(204,204,204) rgb(204,204,204) rgb(204,204,204);
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  font-family: Arial;
+}
+
+button {
+  border-radius: 12px;
+  width: 8px;
+  background-color: rgb(24, 55, 192);
+  border: none;
+  color: white;
+  float: right;
+  margin-right: 20%;
+  margin-left: 60%;
+  padding: 15px 50px;
+  padding-right: 90px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+button:hover {
+	background-color: grey;
+}

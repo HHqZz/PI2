@@ -1,0 +1,62 @@
+<div id="header">
+  <h2 id="headerText">User Maps List
+    <button id="buttonAdmin" [routerLink]="['/admin']" routerLinkActive="active">Admin</button>
+  </h2>
+</div>
+
+<div class="row">
+  <div id="mapTable">
+    <ul class="maps">
+      <tr>
+        <th>Name</th>
+      </tr>
+      <tr *ngFor="let map of mapInfoService.maps " [class.selected]="map === mapInfoService.choosedMap" (click)="mapInfoService.onSelect(map)">
+        <td>{{map.name}}</td>
+      </tr>
+    </ul>
+  </div>
+
+  <div *ngIf="mapInfoService.choosedMap" id="mapDetails">
+
+    <div>
+      <h1>{{ mapInfoService.choosedMap.name | uppercase }} </h1>
+      <div class="col-sm-4">
+        <h4>Preview:</h4>
+        <p>
+          <img src="{{ mapInfoService.choosedMap.preview }}"alt="This map preview couldnt be displayed :(" width="512" height="256">
+        </p>
+      </div>
+      <div>
+        <li>
+          <label>Type:</label>
+          <textarea readonly [(ngModel)]="mapInfoService.choosedMap.type" id="detailsInput"></textarea>
+        </li>
+        <li>
+          <label>Description:</label>
+          <textarea readonly rows="4" cols="50" [(ngModel)]="mapInfoService.choosedMap.description" id="description"></textarea>
+        </li>
+      </div>
+      <div id="buttons">
+        <button id="buttonLoad" [routerLink]="['/car_race/race/',mapInfoService.choosedMap.name]" routerLinkActive="active">Load Track</button>
+      </div>
+    </div>
+
+    <div>
+      <ul class=" mapInfoService.choosedMap.bestTimes">
+        <tr>
+          <th>Name</th>
+          <th>Rank</th>
+          <th>Time</th>
+        </tr>
+        <tr *ngFor="let time of mapInfoService.choosedMap.bestTimes | sort" >  
+          <td>{{time.name}}</td>
+          <td>{{time.rank}}</td>
+          <td>{{time.time}}</td>
+        </tr>
+      </ul>
+    </div>
+
+  </div>
+
+
+</div>

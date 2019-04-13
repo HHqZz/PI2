@@ -1,0 +1,112 @@
+
+th,
+td {
+  text-align: center;
+  padding: 25px;
+  width: 40%;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2 
+}
+
+tr:hover {
+  background-color: #CFD8DC;
+}
+
+th {
+  background-color: #008CBA;
+  color: white;
+}
+
+#headerText{
+  padding-left: 120px;
+}
+
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+.maps {
+  padding-left: 0px;
+} 
+
+#mapTable{
+  float: left;
+}
+
+#mapDetails {
+  float: right;
+  margin-top: -10px;
+  margin-right: 250px;
+}
+
+label{
+  display: inline-block;
+  clear: left;
+  width: 250px;
+  text-align: right;
+}
+
+li{
+  list-style: none;
+  margin-bottom: 15px;
+  margin-left: -170px;
+}
+
+input {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 10px;
+  width: 130px;
+  box-sizing: 20px 30px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input:focus {
+  width: 50%;
+}
+
+select[type="string"] {
+  margin-left: 8px;
+  width: 190px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-color: rgb(204,204,204) rgb(204,204,204) rgb(204,204,204) rgb(204,204,204);
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  font-family: Arial;
+}
+
+#buttons{
+  display: inline-block;
+  margin-left: 20%; 
+}
+
+#buttonAdmin {
+  float: right;
+  background-color: gray;
+  margin-top: 0px;
+  padding: 15px 30px !important;
+}
+
+button {
+
+  border-radius: 12px;
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+
+}

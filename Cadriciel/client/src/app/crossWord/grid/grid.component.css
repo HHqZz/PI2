@@ -1,0 +1,212 @@
+#gameContainer {
+    height: 100vh;
+    width: 100%;
+    background-color: #008CBA;
+}
+
+div {
+    font-family: "Jazz let", fantasy;    
+}
+
+.square {
+    border: 2px solid rgb(24, 22, 22);
+    height: 54px;
+    width:54px;
+    display: inline-block;
+    text-align: center;
+    margin: none;
+}
+
+#containerGrid {
+    list-style-type: none;
+}
+
+div div input{
+    display: inline-block;
+    height: 50px;
+    width:50px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.black{
+    background-color: rgb(24, 22, 22);
+}
+
+.black input{
+    visibility: hidden;
+}
+
+button {
+    text-align: center;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 1vh 2vw;
+    font-size: 3vh;
+    font-family: "Jazz let", fantasy;
+    cursor: pointer;
+    border-radius: 10px
+}
+
+#buttonsContainer {
+    text-align: center;
+}
+
+#gridAndDef {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    background-color: #008CBA;    
+}
+
+.container {
+    float: left;
+}
+
+#containerGrid {
+    text-align: center;
+    padding-top: 7vh;
+    padding-left: 4vw;    
+}
+
+#containerDefinition {
+    max-width: 50vw;
+    padding-left: 4vw;
+}
+
+#containerDefinition ul {
+    padding: 0px;
+    border: 1px solid black;
+    font-size: 15px;
+}
+
+#you {
+    color: green;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#opponent {
+    color: red;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#playersInformation div {
+    display: inline-block;
+}
+
+#compareProgress{
+    border : none;
+    background: red;
+}
+
+#compareProgress::-webkit-progress-value {
+    background: green;
+}
+
+#compareProgress::-webkit-progress-bar {
+    background: red;
+}
+
+#infoProgress .info{
+    display:inline-block;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal #congratScreen {
+    width: 50vw;
+    height: 50vh;
+    background-color: #4CAF50;
+    color: black;
+    position: fixed;  
+    margin-left: 25%;
+
+    text-align: center;
+}
+
+img {
+    margin: auto;
+    display: block;
+}
+
+.modal #congratScreen button {
+    display: inline-block;
+}
+
+#loadingScreen {
+    width: 100vw;
+    padding-top: 20vh;
+}
+
+#textLoading {
+    text-align: center;
+    display: block;    
+    font-size: 50px;
+}
+
+#globalProgress progress{
+    border : none;
+    background: rgb(250, 246, 27);
+}
+
+#globalProgress progress::-webkit-progress-value {
+    background: rgb(238, 159, 13);
+}
+
+#globalProgress progress::-webkit-progress-bar {
+    background: rgb(250, 246, 27);
+}
+
+#gameProgression {
+    text-align: center;
+}
+
+#waitingOpponentScreen {
+    padding-top: 30vh;
+    text-align: center;
+    font-size: 5vh;
+}
+
+#askPlayer {
+    padding-top: 1vh;
+}
+
+#waitAnswer {
+    padding-top: 1vh;
+}
+
+#bravoImg {
+    width: 30vw;
+    height: 20vh;
+}
+
+.congratSentence div {
+    display: inline-block;
+}
+
+.finalScreen div {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.username {
+    color: yellow;
+}
+
+#triggerReplayButton {
+    padding-top: 1vh;
+}

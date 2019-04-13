@@ -1,0 +1,106 @@
+<div id="gameContainer">
+    <div *ngIf="connectionService.myRoomIsFull(); else waitingMode">
+        <div *ngIf="wordsFound !== undefined; else loading" id="crosswordContainer">
+            <div id="gameProgression">
+                <div id="globalProgress">
+                    Follow the game progression here : 
+                    <progress value="{{getNumberWordFound()}}" max="{{wordsFound.length}}"></progress>{{getNumberWordFound()}}/{{wordsFound.length}}     
+                </div> 
+                <div id="infoProgress" *ngIf="connectionService.getMyUsername() !== connectionService.getOpponentUsername()">
+                    <div class="info" id="you">{{connectionService.getMyUsername()}} : {{getNumberWordFound() - opponentCounter}}</div>
+                    <progress class="info" id="compareProgress"value="{{currentUserScore()}}" max="{{getNumberWordFound()}}"></progress>           
+                    <div class="info" id="opponent"> {{opponentCounter}} : {{connectionService.getOpponentUsername()}}  </div>
+                </div>
+                <div>
+                    The difficulty is : {{connectionService.getMyRoom().getDifficultyName()}}
+                </div>
+            </div>
+            <div id="buttonsContainer">
+                <button (click)="undo()">Undo</button>
+                <button id="cheatMode" (click)="cheat()">Here is to cheat</button> 
+                <button id="ultimateCheat" (click)="ultimateCheat()">Ultimate Cheat</button>
+            </div>
+            
+            <div id="gridAndDef">
+                <div id="containerGrid" class="container">
+                    <div *ngFor="let row of gridModel; let i = index" class="row" >
+                        <div *ngFor="let element of row; let j = index" [ngClass]="element != '$$' ? 'white' : 'black'" attr.id="square{{i}}{{j}}" class="square">
+                            <input attr.id="cell{{i}}{{j}}" maxlength="1" (input)="newLetter($event.target.value, i, j)" (keydown)="restrictKey($event)" (focusin)="onFocusIn(i, j)" (focusout)="onFocusOut(i, j)" [ngStyle]="styleInput[i][j]">
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="containerDefinition" class="container">
+                    <div *ngFor="let answer of answers; let k = index" class="row" >
+                        <ul *ngIf="!cheatActivated" [ngStyle]="styleClues[k]" attr.id="def{{k}}" (click)="focusOnStart(k)" (mouseenter) ="mouseEnter(k)"  (mouseleave) ="mouseLeave(k)">({{answer.indexI}}, {{answer.indexJ}}) {{answer.definition}}</ul>
+                        <ul *ngIf="cheatActivated" [ngStyle]="styleClues[k]" (click)="focusOnStart(k)" (mouseenter) ="mouseEnter(k)"  (mouseleave) ="mouseLeave(k)">({{answer.indexI}}, {{answer.indexJ}}) {{answer.word}}</ul>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal" *ngIf="getNumberWordFound() === wordsFound.length"> 
+                <div id="congratScreen">
+                    <div *ngIf="isWinner(); else defeatScreen" class="finalScreen">
+                        <div>Winner winner chicken dinner</div>
+                        <div class="congratSentence">
+                            <div>Congratulations &nbsp;</div><div class="username">{{connectionService.getMyUsername()}}</div><div>, you won !</div>
+                        </div>
+                        <img id="bravoImg" src="https://media.giphy.com/media/l9Tllo1thElT5gvVOU/giphy.gif" alt="Bravo!">
+                    </div>
+                    <ng-template #defeatScreen >
+                        <div class="finalScreen">
+                            <div class="congratSentence">
+                                    <div>Sorry &nbsp;</div><div class="username">{{connectionService.getMyUsername()}}</div><div>, you lost...</div>
+                            </div>
+                            <img id="sorryImg" src="https://media.giphy.com/media/qQdL532ZANbjy/giphy.gif" alt="Sorry">
+                        </div>
+                    </ng-template>
+                    <div id="congratButton">
+                        <div>Do you want to replay the game ?</div>                        
+                        <div *ngIf="allowReplay(); else askReplay">
+                            <div id="triggerReplayButton">
+                                <button (click)="replayGame()">Yes, replay</button>                            
+                            </div>
+                        </div>
+                        <ng-template #askReplay>
+                            <div id="askPlayer">
+                                <div *ngIf="noClick; else waitOpponent">
+                                    <button (click)="wantToReplay(); ">Yes, replay</button>
+                                </div>
+                                <ng-template #waitOpponent>
+                                    <div id="waitAnswer">
+                                        Wait, the opponent is answering... 
+                                    </div>                    
+                                </ng-template>
+                            </div>
+
+                        </ng-template>
+                        <button (click)="goToHomepage()">No, back to home page</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #loading>
+            <div id="loadingScreen">
+                <div id="textLoading">
+                    Loading grid...
+                </div>
+                <div>
+                    <img src="https://loading.io/spinners/bluecat/lg.blue-longcat-spinner.gif" alt="Loading grid">
+                </div>
+            </div>
+
+        </ng-template>        
+    </div>
+    <ng-template #waitingMode>
+        <div id="waitingOpponentScreen">
+            <div>
+                Waiting for an opponent to join...
+            </div>
+            <div>
+                <img src="https://media.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif" alt="Please, wait">
+            </div>
+            <button (click)="goToHomepage()">Go back to home page</button>
+        </div>
+    </ng-template>    
+</div>

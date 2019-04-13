@@ -1,0 +1,46 @@
+<div id ="header">
+  <h2 id="headerText">Map List </h2>
+  <button id = "editorButton" [routerLink]="['/editor']" routerLinkActive="active">Map Editor</button>
+</div>
+
+
+<ul class="maps">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Number of Played times</th>
+  </tr>
+  <tr *ngFor="let map of mapInfoService.maps " [class.selected]="map === mapInfoService.choosedMap" (click)="mapInfoService.onSelect(map)">
+
+    <td>{{map.name}}</td>
+    <td>{{map.type}}</td>
+    <td>{{map.description}}</td>
+    <td>{{map.timesPlayed}}</td>
+  </tr>
+</ul>
+
+<div *ngIf="mapInfoService.choosedMap">
+
+  <h1>{{ mapInfoService.choosedMap.name | uppercase }} Details</h1>
+  <div>
+    <li>
+      <label>Name:</label>
+      <input [(ngModel)]="mapInfoService.choosedMap.name" placeholder="name" (change)="mapInfoService.onNameChange()">
+    </li>
+    <li>
+      <label>Type:</label>
+      <select type="string" [(ngModel)]="mapInfoService.choosedMap.type" (change)="mapInfoService.onInformationChange()">
+        <option *ngFor="let level of mapInfoService.levels" [value]="level">{{level}}</option>
+      </select>
+      <li>
+        <label>Description:</label>
+        <input [(ngModel)]="mapInfoService.choosedMap.description" placeholder="description" (change)="mapInfoService.onInformationChange()">
+      </li>
+  </div>
+
+  <button id="buttonLoad" [routerLink]="['/car_race/race/',mapInfoService.choosedMap.name]" routerLinkActive="active">Load Track</button>
+  <button id="buttonDelete" (click)="mapInfoService.deleteMap(mapInfoService.choosedMap)">Delete</button>
+  <button id="buttonSave" (click)="mapInfoService.initSave(mapInfoService.choosedMap.name, mapInfoService.choosedMap)">Save</button>
+
+</div>

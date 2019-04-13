@@ -1,0 +1,53 @@
+.administration{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color : rgb(58, 19, 233);
+    text-align: center;
+    font-size: 40px
+}
+
+.administration p.section {
+    font-size: 35px;
+    font-style: italic;
+    color : black; 
+}
+
+#main{
+    font-size: 30px;
+    color : black; 
+}
+
+input[type=password] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=password]:focus {
+    width: 50%;
+}
+
+#submit ,
+#configuration {
+    font-size: 20px;
+    border-radius: 12px;
+    background-color:  rgb(58, 19, 233);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    padding: 15px 32px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+#submit:hover,
+#configuration:hover {
+    box-shadow: 0 12px 16px 0 rgba(18, 24, 117, 0.919),0 17px 50px 0 rgba(18, 24, 117, 0.919);
+}

@@ -1,0 +1,40 @@
+<div id="header" [hidden]="selectionIsFinished">
+  <h1>
+    Welcome to the Editor Mode !
+  </h1>
+  <button id="buttonSave" (click)="onCreate()">Save</button>
+  <div id="editor" #container oncontextmenu="return false;"></div>
+</div>
+
+<div [hidden]="!selectionIsFinished">
+
+  <h2>New Map Informations :</h2>
+
+  <form (ngSubmit)="onSubmit()" #mapForm="ngForm" class = "input-group">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" required [(ngModel)]="mapModel.name" name="name" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Map Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select class="form-control" id="type" required [(ngModel)]="mapModel.type" name="type">
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" required [(ngModel)]="mapModel.description" name="description" #description="ngModel">
+      <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+        Map Description is required
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!mapForm.form.valid" (click)="onSubmit()" [routerLink]="['/mapList']" >Create Map</button>
+
+  </form>
+</div>

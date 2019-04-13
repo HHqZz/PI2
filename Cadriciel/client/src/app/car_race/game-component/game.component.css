@@ -1,0 +1,89 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+th,
+td {
+  text-align: center;
+  padding: 25px;
+  width: 27%;
+}
+
+tr:nth-child(even) {
+  /*background-color: #f2f2f2 */
+}
+
+tr:hover {
+  background-color: #d8dae9;
+}
+
+th {
+  background-color: rgb(19, 23, 233);
+  color: white;
+}
+
+#gameContainer {
+    width: 100%;
+    height: 600px;
+}
+
+h1 {
+    position: relative;
+    float: left;
+    margin: 0;
+    top: 140px;
+}
+
+h2 {
+    position: relative;
+    float: right;
+    top: 120px;
+    margin-right: 10px;
+}
+
+ul, li {
+    color: #ff8000;
+    font-size: 25px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.btn btn-info btn-lg {
+  top: -50px;
+  right: -50px;
+}
+
+#endMessage{
+    top: 200px;
+    position: fixed;
+    height: 10vh;
+    left:35%;
+    color: crimson;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 70px;
+
+}
+
+#BestTimes,
+#bestTimes {
+  
+  width: 27%;
+  background-color: #0ce9e9;
+  position: fixed;
+  margin-left: -150px;
+  margin-top: -150px;
+  top: 58%;
+  left: 46.5%;
+
+  /*permet au cases de s'ajuster a la taille de l'ecran*/
+  width: 15vw;
+  min-width: 27%;
+  height:1.5vh;
+  min-height: 30px;
+  margin-bottom: 1.2vh;
+}
+
+.modal-header {
+  height: 50px;
+  font-size: 25px;
+}
+
+.modal-content {
+  font-size: 20px;
+}

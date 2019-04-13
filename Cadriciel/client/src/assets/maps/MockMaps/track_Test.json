@@ -1,0 +1,10 @@
+{
+    "name":"TestMap",
+    "description":"Testing map containing just name, description, type and a segment.",
+    "segmentsArray": [
+        { "start" : { "x": -65, "y": 0, "z": 15 },
+            "end" : { "x": -30, "y": 0, "z": 35 },
+            "isFirst" : true
+        } ],
+    "type":"Easy Peasy"
+}

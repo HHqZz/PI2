@@ -1,0 +1,31 @@
+{
+    "name":"OperationalMap",
+    "description":"Operational map which will make you smile :) .",
+    "type":"Easy Peasy",
+    "segmentsArray": [
+        { "start" : { "x": -65, "y": 0, "z": 15 },
+            "end" : { "x": -30, "y": 0, "z": 35 },
+            "isFirst" : true
+        },
+        { "start" : { "x": -30, "y": 0, "z": 35 },
+            "end" : { "x": 40, "y": 0, "z": 35 },
+            "isFirst" : false
+        },
+        { "start" : { "x": 40, "y": 0, "z": 35 },
+            "end" : { "x": 55, "y": 0, "z": 0 },
+            "isFirst" : false
+        },
+        { "start" : { "x": 55, "y": 0, "z": 0 },
+            "end" : { "x": 20, "y": 0, "z": -35 },
+            "isFirst" : false
+        },
+        { "start" : { "x": 20, "y": 0, "z": -35 },
+            "end" : { "x": -40, "y": 0, "z": -35 },
+            "isFirst" : false
+        },
+        { "start" : { "x": -40, "y": 0, "z": -35 },
+            "end" : { "x": -65, "y": 0, "z": 15 },
+            "isFirst" : false
+        }
+    ]
+}

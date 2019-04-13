@@ -1,0 +1,25 @@
+<div class="administration">
+    <h1>Administrator Website</h1>
+    <p class = "section">Welcome on the administrator section</p> 
+  
+  <div class = "container-fluid" id="main">
+    <div *ngIf="!passwordCorrect" class="form-inline">
+       Password :
+        <input type="password" class="form-control" id="form-login" placeholder="Enter password" #password />
+          <div class="checkbox" id= "checkbox">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+          </div>
+
+        <div class="button">
+          <button id="submit" (click)="login(password.value); password.value='projetEagle'" class="btn btn-primary"
+         >Submit</button>
+          <button id = "configuration" class="btn btn-primary" 
+          [routerLink]="['/admin/config']" routerLinkActive="active">Password Configuration
+          </button>
+       </div>
+    </div>
+  </div>
+  <div *ngIf="passwordCorrect">
+      <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div id="menuContainer">
+    <div *ngIf="!confirmedUsername" id="chooseUsername">
+        <div class="choose">Choose a username : </div>
+        <input class="choose" (input)="setUsername($event.target.value)"> <button *ngIf="username.length" (click)="confirmedUsernameSelected()">Confirm</button>
+    </div>
+
+    <div *ngIf="confirmedUsername" id="settings">
+        <div id="showUsername">Hello, 
+            <div id="currentPlayerUsername">{{username}}</div>
+        </div>
+    
+        <select #diffChoice (change)="onSelectDifficulty(diffChoice.value)">
+            <option *ngFor="let diff of selectDifficultyOption; let i = index" value="{{i}}">{{diff}}</option>
+        </select>
+    
+        <select #modeChoice (change)="onSelectMode(modeChoice.value)">
+                <option *ngFor="let mode of selectModeOption; let j = index" value="{{j}}">{{mode}}</option>
+        </select>
+            
+        <div *ngIf="isReady()">
+            <div>
+                <button id="createGame" [routerLink]="['/crossword']" routerLinkActive="active" (click)="createGameSelected()">CREATE GAME </button>
+            </div>
+        </div>
+    
+        <div>Join a game :</div>
+        <div>
+            <div *ngFor="let room of allRooms">
+                <button *ngIf="!room.isFull()" [routerLink]="['/crossword']" routerLinkActive="active" (click)="joinGameSelected(room.getName())">Game of {{room.getName()}}</button>
+            </div>
+        </div>
+    </div>
+</div>

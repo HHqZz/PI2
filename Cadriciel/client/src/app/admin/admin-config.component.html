@@ -1,0 +1,24 @@
+<form ng-app="" name="myForm" >
+    <div class = "align">
+        <h2 class = "section">Change Password</h2>
+        <div *ngIf="!changed">
+        
+            <p>Current Password:
+            <input type="password" name="password" ng-model="password" class="form-control" placeholder="Current password" #password required>
+            <span ng-show="myForm.password.$touched && myForm.password.$invalid"></span>
+            </p>
+            
+            <p>New Password:
+            <input type="password" name="newPassword" ng-model="password" class="form-control" placeholder="New password" #newPassword required>
+            </p>
+    
+        <button id="submit" (click)="changePassword(password.value, newPassword.value);
+            password.value=''; newPassword.value=''" class="btn btn-primary">Submit</button>
+        </div>
+        
+    </div>
+   
+    <div *ngIf="changed" class="alert alert-success">
+        You have changed your password!
+    </div>
+</form>
