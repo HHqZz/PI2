@@ -1,2 +1,2 @@
 # PI2
-Polytechnique Montreal - INF3995 - Projet integrateur 3 - Genie informatique
+Polytechnique Montreal - INF2990 - Projet integrateur 2 - Genie informatique
